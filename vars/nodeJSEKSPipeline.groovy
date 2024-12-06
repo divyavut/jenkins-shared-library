@@ -9,6 +9,9 @@ def call(Map configMap) {
         disableConcurrentBuilds()
         //retry(1)
     }
+    parameters{
+        booleanParam(name: 'deploy', defaultValue: false, description: 'Select to deply o not')
+    }
     environment {
         DEBUG = 'true'
         appVersion = '' // this will become global, we can use across pipeline
@@ -77,7 +80,7 @@ def call(Map configMap) {
                 expression { params.deploy }
             }
             steps{
-                build job: 'backend-cd', 
+                build job: '../backend-cd', 
                 parameters: [
                     string(name: 'version', value: "$appVersion"),
                     string(name: 'ENVIRONMENT', value: "dev"),
