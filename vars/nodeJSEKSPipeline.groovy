@@ -19,7 +19,7 @@ def call(Map configMap) {
         account_id = '461997657539'
         project = configMap.get("project")
         environment = 'dev'
-        component = 'backend'
+        component = ''
     }
 
     stages {
