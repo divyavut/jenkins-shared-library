@@ -62,7 +62,7 @@ def call(Map configMap) {
                 expression { params.deploy}
              }
             steps {
-                withAWS(region: 'us-east-1', credentials: 'aws-creds') {
+                withAWS(region: 'us-east-1', credentials:  "aws-creds-${environment}") {
                     sh """
                     aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin ${account_id}.dkr.ecr.us-east-1.amazonaws.com
 
