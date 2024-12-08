@@ -16,7 +16,7 @@ def call(Map configMap) {
         DEBUG = 'true'
         appVersion = '' // this will become global, we can use across pipeline
         region = 'us-east-1'
-        account_id = ''
+        account_id = '461997657539'
         project = configMap.get("project")
         environment = 'dev'
         component = ''
